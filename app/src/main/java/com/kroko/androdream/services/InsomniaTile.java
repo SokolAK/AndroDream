@@ -1,37 +1,21 @@
-package com.dream.services;
+package com.kroko.androdream.services;
 
-import android.app.Notification;
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
 import android.content.Context;
-import android.content.Intent;
 import android.os.Build;
-import android.os.IBinder;
 import android.os.PowerManager;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
-import android.view.WindowManager;
 
 import androidx.annotation.RequiresApi;
-import androidx.core.app.NotificationCompat;
 
-import com.dream.MainActivity;
-import com.dream.R;
+import com.kroko.androdream.Globals;
+import com.androdream.R;
 
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class InsomniaTile extends TileService {
 
-    public static PowerManager.WakeLock wl;
-
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-
-        Tile tile = getQsTile();
-        tile.setState(Tile.STATE_INACTIVE);
-        tile.updateTile();
-        return START_STICKY;
-    }
+    PowerManager.WakeLock wakeLock;
+    PowerManager pm;
 
     @Override
     public void onTileAdded() {
@@ -49,19 +33,14 @@ public class InsomniaTile extends TileService {
 
         Tile tile = getQsTile();
         if (tile.getState() == Tile.STATE_INACTIVE) {
-            PowerManager powerManager = (PowerManager) getSystemService(POWER_SERVICE);
-            wl = powerManager.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK,
-                    "MyApp::MyWakelockTag");
-            wl.acquire();
-
+            acquirewakeLock();
 
             tile.setState(Tile.STATE_ACTIVE);
 
         } else if (tile.getState() == Tile.STATE_ACTIVE) {
-            if (wl != null) {
-                if (wl.isHeld()) {
-                    wl.release();
-                }
+            if(Globals.wakelock!=null){
+                Globals.wakelock.release();
+                Globals.wakelock=null;
             }
             tile.setState(Tile.STATE_INACTIVE);
         }
@@ -75,4 +54,17 @@ public class InsomniaTile extends TileService {
         super.onTileRemoved();
     }
 
+    public void acquirewakeLock() {
+        if(Globals.wakelock!=null){
+            Globals.wakelock.release();
+            Globals.wakelock=null;
+        }
+        pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
+        wakeLock = pm.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK | PowerManager.ON_AFTER_RELEASE, "myapp::==KeepScreenOn==");
+        wakeLock.acquire();
+        Globals.wakelock=this.wakeLock;
+    }
+    public void releaseWakelock() {
+        wakeLock.release();
+    }
 }

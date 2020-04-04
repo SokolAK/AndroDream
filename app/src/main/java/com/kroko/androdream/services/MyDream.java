@@ -1,9 +1,7 @@
-package com.dream.services;
+package com.kroko.androdream.services;
 
 import android.service.dreams.DreamService;
 import android.view.View;
-
-import com.dream.R;
 
 public class MyDream extends DreamService {
 

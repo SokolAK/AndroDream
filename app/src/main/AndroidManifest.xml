@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.dream">
+    package="com.androdream">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name=".MainActivity"
+            android:name="com.kroko.androdream.MainActivity"
             android:theme="@android:style/Theme.Wallpaper.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +21,7 @@
         </activity>
 
         <service
-            android:name=".services.MyDream"
+            android:name="com.kroko.androdream.services.MyDream"
             android:exported="true"
             android:permission="android.permission.BIND_DREAM_SERVICE">
             <intent-filter>
@@ -30,6 +30,16 @@
             </intent-filter>
         </service>
 
+        <service
+            android:name="com.kroko.androdream.services.InsomniaTile"
+            android:icon="@drawable/ic_tile_icon_24dp"
+            android:label="@string/insomnia_tile_label"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action
+                    android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
 
 
     </application>
