@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">Andro Dream</string>
-    <string name="insomnia_tile_label">"Insomnia"</string>
+    <string name="app_name">AndroDream</string>
+    <string name="tile_label">"Don't sleep"</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.kroko.androdream;
+package com.sokolak87.androdream;
 
 import android.os.PowerManager;
 

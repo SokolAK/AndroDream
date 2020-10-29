@@ -1,15 +1,13 @@
-package com.kroko.androdream.services;
+package com.sokolak87.androdream.services;
 
 import android.service.dreams.DreamService;
 import android.view.View;
 
-public class MyDream extends DreamService {
+public class Dream extends DreamService {
 
     @Override
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-
-        //setContentView(R.layout.main_activity);
     }
 
     public void onDreamingStarted() {

@@ -1,4 +1,4 @@
-package com.kroko.androdream.services;
+package com.sokolak87.androdream.services;
 
 import android.content.Context;
 import android.os.Build;
@@ -8,11 +8,11 @@ import android.service.quicksettings.TileService;
 
 import androidx.annotation.RequiresApi;
 
-import com.kroko.androdream.Globals;
+import com.sokolak87.androdream.Globals;
 import com.androdream.R;
 
 @RequiresApi(api = Build.VERSION_CODES.N)
-public class InsomniaTile extends TileService {
+public class DontSleepTile extends TileService {
 
     PowerManager.WakeLock wakeLock;
     PowerManager pm;
@@ -23,7 +23,7 @@ public class InsomniaTile extends TileService {
 
         Tile tile = getQsTile();
         tile.setState(Tile.STATE_INACTIVE);
-        tile.setLabel(getResources().getString(R.string.insomnia_tile_label));
+        tile.setLabel(getResources().getString(R.string.tile_label));
         tile.updateTile();
     }
 
