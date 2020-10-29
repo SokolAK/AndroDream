@@ -38,9 +38,9 @@ public class DontSleepTile extends TileService {
             tile.setState(Tile.STATE_ACTIVE);
 
         } else if (tile.getState() == Tile.STATE_ACTIVE) {
-            if(Globals.wakelock!=null){
+            if (Globals.wakelock != null) {
                 Globals.wakelock.release();
-                Globals.wakelock=null;
+                Globals.wakelock = null;
             }
             tile.setState(Tile.STATE_INACTIVE);
         }
@@ -48,23 +48,20 @@ public class DontSleepTile extends TileService {
         tile.updateTile();
     }
 
-
     @Override
     public void onTileRemoved() {
         super.onTileRemoved();
     }
 
     public void acquirewakeLock() {
-        if(Globals.wakelock!=null){
+        if (Globals.wakelock != null) {
             Globals.wakelock.release();
-            Globals.wakelock=null;
+            Globals.wakelock = null;
         }
         pm = (PowerManager) getSystemService(Context.POWER_SERVICE);
-        wakeLock = pm.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK | PowerManager.ON_AFTER_RELEASE, "myapp::==KeepScreenOn==");
+        wakeLock = pm.newWakeLock(PowerManager.SCREEN_BRIGHT_WAKE_LOCK | PowerManager.ON_AFTER_RELEASE,
+                "myapp::==KeepScreenOn==");
         wakeLock.acquire();
-        Globals.wakelock=this.wakeLock;
-    }
-    public void releaseWakelock() {
-        wakeLock.release();
+        Globals.wakelock = this.wakeLock;
     }
 }
