@@ -7,6 +7,11 @@ AndroDream is a tiny program that imitates turning off the screen.
 ## Technologies
 * Java
 
+## Configuration
+After installing, go to Settings -> Display and set your Screensaver to AndroDream
+(or just use your favourite screensaver).
+That's all!
+
 ## Program usage
 Click it to launch Daydream screensaver that imitates "screen off".
 Turn the screen back on by touching it or pressing the power button.
