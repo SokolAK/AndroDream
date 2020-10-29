@@ -30,13 +30,10 @@ public class DontSleepTile extends TileService {
     @Override
     public void onClick() {
         super.onClick();
-
         Tile tile = getQsTile();
         if (tile.getState() == Tile.STATE_INACTIVE) {
-            acquirewakeLock();
-
+            acquireWakeLock();
             tile.setState(Tile.STATE_ACTIVE);
-
         } else if (tile.getState() == Tile.STATE_ACTIVE) {
             if (Globals.wakelock != null) {
                 Globals.wakelock.release();
@@ -44,7 +41,6 @@ public class DontSleepTile extends TileService {
             }
             tile.setState(Tile.STATE_INACTIVE);
         }
-
         tile.updateTile();
     }
 
@@ -53,7 +49,7 @@ public class DontSleepTile extends TileService {
         super.onTileRemoved();
     }
 
-    public void acquirewakeLock() {
+    public void acquireWakeLock() {
         if (Globals.wakelock != null) {
             Globals.wakelock.release();
             Globals.wakelock = null;
