@@ -1,4 +1,4 @@
-package com.sokolak87.androdream;
+package com.sokolak.androdream;
 
 import androidx.appcompat.app.AppCompatActivity;
 

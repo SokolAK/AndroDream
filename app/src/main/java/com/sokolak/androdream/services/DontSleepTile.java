@@ -1,4 +1,4 @@
-package com.sokolak87.androdream.services;
+package com.sokolak.androdream.services;
 
 import android.content.Context;
 import android.os.Build;
@@ -8,7 +8,7 @@ import android.service.quicksettings.TileService;
 
 import androidx.annotation.RequiresApi;
 
-import com.sokolak87.androdream.Globals;
+import com.sokolak.androdream.Globals;
 import com.androdream.R;
 
 @RequiresApi(api = Build.VERSION_CODES.N)
