@@ -1,5 +1,5 @@
 # AndroDream
-AndroDream is a tiny program that imitates turning off the screen.
+AndroDream is a tiny program that imitates turning off the screen.<br /> 
 Find it on Google Play: https://play.google.com/store/apps/details?id=com.sokolak.androdream
 
 ## System requirements
