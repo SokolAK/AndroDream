@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.androdream">
+    package="pl.androdream">
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
 
@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme">
 
         <activity
-            android:name="com.sokolak.androdream.MainActivity"
+            android:name="pl.sokolak.androdream.MainActivity"
             android:theme="@android:style/Theme.Wallpaper.NoTitleBar.Fullscreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -21,7 +21,7 @@
         </activity>
 
         <service
-            android:name="com.sokolak.androdream.services.Dream"
+            android:name="pl.sokolak.androdream.services.Dream"
             android:exported="true"
             android:permission="android.permission.BIND_DREAM_SERVICE">
             <intent-filter>
@@ -31,7 +31,7 @@
         </service>
 
         <service
-            android:name="com.sokolak.androdream.services.DontSleepTile"
+            android:name="pl.sokolak.androdream.services.DontSleepTile"
             android:icon="@drawable/ic_tile_icon_24dp"
             android:label="@string/tile_label"
             android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">

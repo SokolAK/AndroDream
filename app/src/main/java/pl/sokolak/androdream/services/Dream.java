@@ -1,4 +1,4 @@
-package com.sokolak.androdream.services;
+package pl.sokolak.androdream.services;
 
 import android.service.dreams.DreamService;
 import android.view.View;

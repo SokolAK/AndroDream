@@ -1,4 +1,4 @@
-package com.sokolak.androdream.services;
+package pl.sokolak.androdream.services;
 
 import android.content.Context;
 import android.os.Build;
@@ -8,8 +8,8 @@ import android.service.quicksettings.TileService;
 
 import androidx.annotation.RequiresApi;
 
-import com.sokolak.androdream.Globals;
-import com.androdream.R;
+import pl.sokolak.androdream.Globals;
+import pl.androdream.R;
 
 @RequiresApi(api = Build.VERSION_CODES.N)
 public class DontSleepTile extends TileService {
